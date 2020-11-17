@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -29,6 +30,7 @@ public class SavedDataFragment extends Fragment {
     private RecyclerView recyclerView;
     private List<Source> sourceList;
     private SourceAdapter adapter;
+    private LifecycleOwner viewLifecycleOwner;
 
     public SavedDataFragment() {
     }
@@ -53,7 +55,8 @@ public class SavedDataFragment extends Fragment {
         adapter = new SourceAdapter(getActivity(), sourceList);
         recyclerView.setAdapter(adapter);
 
-        sourceViewModel.getAllSources().observe(this, new Observer<List<Source>>() {
+        viewLifecycleOwner = getViewLifecycleOwner();
+        sourceViewModel.getAllSources().observe(viewLifecycleOwner, new Observer<List<Source>>() {
             @Override
             public void onChanged(List<Source> sources) {
               adapter.setSourceList(sources);
