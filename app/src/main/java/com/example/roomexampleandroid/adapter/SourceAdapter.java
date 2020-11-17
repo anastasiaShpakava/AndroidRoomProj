@@ -49,6 +49,11 @@ public class SourceAdapter extends RecyclerView.Adapter<SourceAdapter.SourceView
         return sources.size();
     }
 
+    public void setSourceList(List<Source> sources) {
+        this.sources = sources;
+        notifyDataSetChanged();
+    }
+
     public static class SourceViewHolder extends RecyclerView.ViewHolder {
         TextView sourceName, sourceId, sourceDescription, sourceURL, sourceCategory, sourceLanguage, sourceCountry;
 

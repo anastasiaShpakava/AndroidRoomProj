@@ -14,7 +14,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.roomexampleandroid.R;
-import com.example.roomexampleandroid.adapter.SavedDataAdapter;
+
+import com.example.roomexampleandroid.adapter.SourceAdapter;
 import com.example.roomexampleandroid.entity.Source;
 import com.example.roomexampleandroid.repository.DataBaseRepository;
 import com.example.roomexampleandroid.viewModel.SourceViewModel;
@@ -27,7 +28,7 @@ public class SavedDataFragment extends Fragment {
     private DataBaseRepository dataBaseRepository;
     private RecyclerView recyclerView;
     private List<Source> sourceList;
-    private SavedDataAdapter adapter;
+    private SourceAdapter adapter;
 
     public SavedDataFragment() {
     }
@@ -49,7 +50,7 @@ public class SavedDataFragment extends Fragment {
 
         sourceList = new ArrayList<>();
 
-        adapter = new SavedDataAdapter(getActivity(), sourceList);
+        adapter = new SourceAdapter(getActivity(), sourceList);
         recyclerView.setAdapter(adapter);
 
         sourceViewModel.getAllSources().observe(this, new Observer<List<Source>>() {
