@@ -55,7 +55,7 @@ public class SourceFragment extends Fragment {
         sourceViewModel.init(api_key);
 
         viewLifecycleOwner = getViewLifecycleOwner();
-        sourceViewModel.getNewsRepository().observe(this, newsResponse -> {
+        sourceViewModel.getNewsRepository().observe(viewLifecycleOwner, newsResponse -> {
             List<Source> newsArticles = newsResponse.getSources();
             sources.addAll(newsArticles);
             sourceAdapter.notifyDataSetChanged(); //сообщает наблюдателям,что набор данных изменился
