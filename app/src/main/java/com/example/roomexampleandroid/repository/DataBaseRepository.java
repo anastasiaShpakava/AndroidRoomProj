@@ -1,14 +1,11 @@
 package com.example.roomexampleandroid.repository;
 
-import android.app.Application;
+
 import android.content.Context;
-import android.provider.ContactsContract;
 import android.util.Log;
-import android.widget.Toast;
+
 
 import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MutableLiveData;
-
 import com.example.roomexampleandroid.dao.SourceDao;
 import com.example.roomexampleandroid.database.SourceDatabase;
 import com.example.roomexampleandroid.entity.News;
@@ -57,7 +54,7 @@ public class DataBaseRepository {
 
                 Completable.fromAction(new Action (){
                     @Override
-                    public void run() throws Exception {
+                    public void run() {
                         if (response.body() != null) {
 
                             List<Source> list = response.body().getSources();

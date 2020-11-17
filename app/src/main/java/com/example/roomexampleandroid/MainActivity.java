@@ -25,4 +25,5 @@ public class MainActivity extends AppCompatActivity {
                 .enableWebKitInspector(Stetho.defaultInspectorModulesProvider(this))
                 .build());
     }
+
 }

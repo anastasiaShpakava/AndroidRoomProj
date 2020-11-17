@@ -6,8 +6,6 @@ import android.widget.Toast;
 
 public class DataSharedPreference {
     private static DataSharedPreference spInstance = null;
-
-
     private static final String APP_PREFERENCES = "myPreferences";
 
     public static DataSharedPreference getSPInstance(){
@@ -31,7 +29,6 @@ public class DataSharedPreference {
 
     protected String loadText(Context context) {
         SharedPreferences sharedPreferences = context.getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
-        String API_KEY = sharedPreferences.getString("saved_text", null);
-        return API_KEY;
+        return sharedPreferences.getString("saved_text", null);
     }
 }

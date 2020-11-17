@@ -8,13 +8,14 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewToFragment"
         android:layout_width="300dp"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"/>
 
     <Button
         android:id="@+id/goToSavedDataButton"
-        android:layout_width="wrap_content"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="50dp"
-        android:text="go"/>
+        android:layout_marginLeft="0dp"
+        android:text="@string/goToSavedDataButton_text"/>
 
 </LinearLayout>
