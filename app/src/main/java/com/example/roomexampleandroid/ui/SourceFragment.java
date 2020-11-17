@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -31,6 +32,7 @@ public class SourceFragment extends Fragment {
     private List<Source> sources = new ArrayList<>();
     private SourceViewModel sourceViewModel;
     private Button goToSavedDataButton;
+    private LifecycleOwner viewLifecycleOwner;
 
     public SourceFragment() {
     }
@@ -52,6 +54,7 @@ public class SourceFragment extends Fragment {
         sourceViewModel = ViewModelProviders.of(this).get(SourceViewModel.class);
         sourceViewModel.init(api_key);
 
+        viewLifecycleOwner = getViewLifecycleOwner();
         sourceViewModel.getNewsRepository().observe(this, newsResponse -> {
             List<Source> newsArticles = newsResponse.getSources();
             sources.addAll(newsArticles);
